@@ -21,12 +21,12 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
               className="flex items-center hover:opacity-90 transition-opacity"
             >
               <img
-                src="/glow-logo.jpg"
-                alt="Glow with Joo"
+                src="/sereneva-logo.png"
+                alt="Sereneva"
                 className="h-10 sm:h-12 w-auto object-contain rounded-lg"
               />
-              <span className="ml-3 text-lg sm:text-xl font-heading font-bold text-blush-600 tracking-tight">
-                Glow with Joo
+              <span className="ml-3 text-lg sm:text-xl font-heading font-bold text-black tracking-tight">
+                Sereneva
               </span>
             </button>
 
@@ -119,12 +119,12 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
             <div className="flex items-center justify-between p-5 border-b border-blush-100">
               <div className="flex items-center gap-3">
                 <img
-                  src="/glow-logo.jpg"
-                  alt="Glow with Joo"
+                  src="/sereneva-logo.png"
+                  alt="Sereneva"
                   className="h-8 w-auto object-contain rounded-md"
                 />
-                <span className="text-lg font-heading font-bold text-blush-600">
-                  Glow with Joo
+                <span className="text-lg font-heading font-bold text-black">
+                  Sereneva
                 </span>
               </div>
               <button

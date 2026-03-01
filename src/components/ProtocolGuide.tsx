@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, FlaskConical, Syringe, Thermometer, Clock, AlertTriangle, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
+import { ArrowLeft, FlaskConical, Syringe, Thermometer, Clock, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import { useCart } from '../hooks/useCart';
@@ -31,7 +31,7 @@ const ProtocolGuide: React.FC = () => {
         : activeProtocols.filter(p => p.category === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#FADADD] via-[#FDF5F7] to-white">
+        <div className="min-h-screen bg-gradient-to-br from-white via-blush-50 to-white">
             <Header
                 cartItemsCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
                 onCartClick={() => { }}
@@ -42,7 +42,7 @@ const ProtocolGuide: React.FC = () => {
                 {/* Back Button */}
                 <button
                     onClick={handleBackToHome}
-                    className="flex items-center gap-2 text-charcoal-600 hover:text-rose-500 transition-colors mb-6 group"
+                    className="flex items-center gap-2 text-charcoal-600 hover:text-blush-600 transition-colors mb-6 group"
                 >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                     <span className="text-sm font-medium">Back to Home</span>
@@ -51,7 +51,7 @@ const ProtocolGuide: React.FC = () => {
                 {/* Header */}
                 <div className="text-center mb-10">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-blush-200 shadow-soft mb-4">
-                        <BookOpen className="w-4 h-4 text-rose-500" />
+                        <BookOpen className="w-4 h-4 text-blush-600" />
                         <span className="text-xs font-medium text-charcoal-700 uppercase tracking-widest">Protocol Guide</span>
                     </div>
                     <h1 className="font-heading text-3xl sm:text-4xl font-bold text-charcoal-900 mb-3">
@@ -67,12 +67,12 @@ const ProtocolGuide: React.FC = () => {
                 {/* General Guidelines */}
                 <div className="bg-white rounded-2xl shadow-soft border border-blush-100 p-6 mb-8">
                     <h2 className="font-heading text-xl font-semibold text-charcoal-900 mb-4 flex items-center gap-2">
-                        <Syringe className="w-5 h-5 text-rose-500" />
+                        <Syringe className="w-5 h-5 text-blush-600" />
                         General Injection Guidelines
                     </h2>
                     <ul className="space-y-3 text-sm text-charcoal-700">
                         <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-blush-500 mt-2 flex-shrink-0"></span>
                             <span><strong>Reconstitution:</strong> Use bacteriostatic water. Add slowly along the vial wall, don't shake.</span>
                         </li>
                         <li className="flex items-start gap-2">
@@ -93,7 +93,7 @@ const ProtocolGuide: React.FC = () => {
                 {/* Storage Guidelines */}
                 <div className="bg-white rounded-2xl shadow-soft border border-blush-100 p-6 mb-8">
                     <h2 className="font-heading text-xl font-semibold text-charcoal-900 mb-4 flex items-center gap-2">
-                        <Thermometer className="w-5 h-5 text-rose-500" />
+                        <Thermometer className="w-5 h-5 text-blush-600" />
                         Storage Guidelines
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
@@ -120,7 +120,7 @@ const ProtocolGuide: React.FC = () => {
                     <select
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
-                        className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white border border-blush-200 text-charcoal-800 font-medium shadow-soft focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all cursor-pointer"
+                        className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white border border-blush-200 text-charcoal-800 font-medium shadow-soft focus:ring-2 focus:ring-blush-500 focus:border-transparent transition-all cursor-pointer"
                     >
                         {categories.map((category) => (
                             <option key={category} value={category}>
@@ -133,7 +133,7 @@ const ProtocolGuide: React.FC = () => {
 
                 {loading ? (
                     <div className="flex items-center justify-center py-12">
-                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rose-500"></div>
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blush-500"></div>
                     </div>
                 ) : filteredProtocols.length === 0 ? (
                     <div className="bg-white rounded-2xl shadow-soft border border-blush-100 p-8 text-center">
@@ -151,7 +151,7 @@ const ProtocolGuide: React.FC = () => {
                                     className="w-full p-5 flex items-center justify-between text-left hover:bg-blush-50/50 transition-colors"
                                 >
                                     <div>
-                                        <span className="text-xs font-medium text-rose-500 uppercase tracking-wider">{protocol.category}</span>
+                                        <span className="text-xs font-medium text-blush-600 uppercase tracking-wider">{protocol.category}</span>
                                         <h3 className="font-heading text-lg font-semibold text-charcoal-900 mt-1">{protocol.name}</h3>
                                     </div>
                                     {expandedProtocol === protocol.id ? (
@@ -186,7 +186,7 @@ const ProtocolGuide: React.FC = () => {
                                                 <ul className="space-y-2">
                                                     {protocol.notes.map((note, idx) => (
                                                         <li key={idx} className="flex items-start gap-2 text-sm text-charcoal-700">
-                                                            <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 flex-shrink-0"></span>
+                                                            <span className="w-1.5 h-1.5 rounded-full bg-blush-500 mt-2 flex-shrink-0"></span>
                                                             {note}
                                                         </li>
                                                     ))}
@@ -213,7 +213,7 @@ const ProtocolGuide: React.FC = () => {
                 <div className="text-center mt-10">
                     <a
                         href="/calculator"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-rose-500 hover:bg-rose-600 text-white font-semibold rounded-2xl shadow-lg transition-all"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-charcoal-900 hover:bg-charcoal-800 text-white font-semibold rounded-2xl shadow-lg transition-all"
                     >
                         <FlaskConical className="w-4 h-4" />
                         Use Peptide Calculator

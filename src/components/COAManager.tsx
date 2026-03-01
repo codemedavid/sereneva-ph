@@ -38,7 +38,7 @@ const COAManager: React.FC<COAManagerProps> = ({ onBack }) => {
     verification_key: '',
     image_url: '/coa/',
     featured: false,
-    manufacturer: 'peptalk.ph',
+    manufacturer: 'Sereneva',
     laboratory: 'Janoshik + Chromate',
   });
 

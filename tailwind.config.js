@@ -7,56 +7,56 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Glow with Joo - Purple Theme
-        'theme-bg': '#FFFFFF',           // Pure White
-        'theme-text': '#4A4A4A',         // Soft Charcoal
+        // Sereneva - Black & White Theme
+        'theme-bg': '#FFFFFF',
+        'theme-text': '#111111',
 
-        // Primary - Glow Purple
+        // Primary - Black/Grayscale
         'blush': {
-          DEFAULT: '#7A28CB', // Main Purple
-          50: '#F5F3FF',
-          100: '#EDE9FE',
-          200: '#DDD6FE',
-          300: '#C4B5FD',
-          400: '#A78BFA',
-          500: '#8B5CF6',
-          600: '#7A28CB', // Primary Brand Color
-          700: '#6D28D9',
-          800: '#5B21B6',
-          900: '#4C1D95',
+          DEFAULT: '#111111', // Main Black
+          50: '#F9F9F9',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#737373',
+          600: '#404040',
+          700: '#262626',
+          800: '#171717',
+          900: '#0A0A0A',
         },
 
-        // Accent - Glow Teal
+        // Accent - Light Gray 
         'glow-teal': {
-          DEFAULT: '#1ABC9C',
-          50: '#F0FDFA',
-          100: '#CCFBF1',
-          200: '#99F6E4',
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#14B8A6',
-          600: '#0D9488',
-          700: '#0F766E',
-          800: '#115E59',
-          900: '#134E4A',
+          DEFAULT: '#6B7280',
+          50: '#F9FAFB',
+          100: '#F3F4F6',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#1F2937',
+          900: '#111827',
         },
 
-        // Secondary - Soft Gold/Accent
+        // Secondary - Slate
         'rose': {
-          DEFAULT: '#FBBF24',
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+          DEFAULT: '#475569',
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
+          700: '#334155',
+          800: '#1E293B',
+          900: '#0F172A',
         },
 
-        // Neutral - Soft Charcoal
+        // Neutral - Charcoal (Keeping as is, it's already neutral)
         'charcoal': {
           DEFAULT: '#3D3D3D',
           50: '#F7F7F7',
@@ -67,14 +67,14 @@ export default {
           500: '#6F6F6F',
           600: '#5F5F5F',
           700: '#4F4F4F',
-          800: '#3D3D3D', // Primary Text
+          800: '#3D3D3D',
           900: '#2D2D2D',
         },
 
         // Backgrounds
         'cream': '#FFFFFF',
-        'blush-light': '#F5F3FF',
-        'warm-white': '#FAFAFB',
+        'blush-light': '#F9F9F9',
+        'warm-white': '#FFFFFF',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -86,8 +86,8 @@ export default {
         'DEFAULT': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03)',
         'md': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
         'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
-        'soft': '0 2px 8px rgba(248, 200, 216, 0.15), 0 4px 16px rgba(248, 200, 216, 0.1)',
-        'luxury': '0 4px 20px rgba(232, 164, 184, 0.15)',
+        'soft': '0 2px 8px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04)',
+        'luxury': '0 4px 20px rgba(0, 0, 0, 0.08)',
       },
       borderRadius: {
         'none': '0',

@@ -277,9 +277,9 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
 
             console.log('✅ Order saved to database:', orderData);
 
-            // Generate custom order number: GWJ-XXXX (3-4 random digits)
+            // Generate custom order number: SRN-XXXX (3-4 random digits)
             const randomDigits = Math.floor(Math.random() * 9000 + 1000); // 1000-9999
-            const customOrderNumber = `GWJ-${randomDigits}`;
+            const customOrderNumber = `SRN-${randomDigits}`;
             setOrderNumber(customOrderNumber);
 
             // Get current date and time
@@ -296,7 +296,7 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
             });
 
             const orderDetails = `
-✨ GLOW WITH JOO - NEW ORDER
+✨ SERENEVA - NEW ORDER
 
 📅 ORDER DATE & TIME
 ${dateTimeStamp}
@@ -398,9 +398,9 @@ Please confirm this order. Thank you!
         return (
             <div className="min-h-screen bg-gradient-to-br from-white via-blush-50 to-white flex items-center justify-center px-4 py-12">
                 <div className="max-w-2xl w-full">
-                    <div className="bg-white rounded shadow-clinical p-8 md:p-12 text-center border border-gray-100">
-                        <div className="bg-bio-green-light w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-                            <ShieldCheck className="w-12 h-12 text-bio-green" />
+                    <div className="bg-white rounded shadow-soft p-8 md:p-12 text-center border border-gray-100">
+                        <div className="bg-glow-teal-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                            <ShieldCheck className="w-12 h-12 text-glow-teal-600" />
                         </div>
                         <h1 className="font-heading text-3xl md:text-4xl font-bold text-blush-900 mb-4 tracking-tight">
                             Order Confirmed
@@ -450,7 +450,7 @@ Please confirm this order. Thank you!
                                 </pre>
                             </div>
                             {copied && (
-                                <p className="text-bio-green text-sm mt-2 flex items-center gap-1 font-medium">
+                                <p className="text-glow-teal-600 text-sm mt-2 flex items-center gap-1 font-medium">
                                     <Check className="w-4 h-4" />
                                     Copied to clipboard! Ready to send.
                                 </p>
@@ -518,7 +518,7 @@ Please confirm this order. Thank you!
     // Payment Step
     if (step === 'payment') {
         return (
-            <div className="min-h-screen bg-cool-gray py-6 md:py-8">
+            <div className="min-h-screen bg-blush-light py-6 md:py-8">
                 <div className="container mx-auto px-4 max-w-5xl">
                     <button
                         onClick={() => setStep('details')}
@@ -537,7 +537,7 @@ Please confirm this order. Thank you!
                         <div className="lg:col-span-2 space-y-6">
 
                             {/* Payment Methods */}
-                            <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                            <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                                 <h2 className="font-heading text-lg font-bold text-blush-900 mb-4 flex items-center gap-2">
                                     <CreditCard className="w-5 h-5 text-glow-teal-600" />
                                     Select Payment Method
@@ -596,7 +596,7 @@ Please confirm this order. Thank you!
                             </div>
 
                             {/* Payment Proof Upload */}
-                            <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                            <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                                 <h2 className="font-heading text-lg font-bold text-blush-900 mb-4 flex items-center gap-2">
                                     <Upload className="w-5 h-5 text-glow-teal-600" />
                                     Upload Proof of Payment
@@ -616,7 +616,7 @@ Please confirm this order. Thank you!
                                     <label htmlFor="payment-proof-upload" className="cursor-pointer flex flex-col items-center">
                                         {paymentProof ? (
                                             <>
-                                                <Check className="w-12 h-12 text-bio-green mb-3" />
+                                                <Check className="w-12 h-12 text-glow-teal-600 mb-3" />
                                                 <p className="font-medium text-blush-900">{paymentProof.name}</p>
                                                 <p className="text-sm text-gray-500 mt-1">Click to change file</p>
                                             </>
@@ -632,7 +632,7 @@ Please confirm this order. Thank you!
                             </div>
 
                             {/* Notes */}
-                            <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                            <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                                 <h2 className="font-heading text-lg font-bold text-blush-900 mb-4">
                                     Additional Notes (Optional)
                                 </h2>
@@ -655,7 +655,7 @@ Please confirm this order. Thank you!
 
                         {/* Sidebar Summary (Reused logic, simplified UI) */}
                         <div className="lg:col-span-1">
-                            <div className="bg-white rounded shadow-clinical p-6 sticky top-24 border border-gray-100">
+                            <div className="bg-white rounded shadow-soft p-6 sticky top-24 border border-gray-100">
                                 <h3 className="font-heading font-bold text-blush-900 mb-4">Order Summary</h3>
                                 <div className="space-y-2 mb-4">
                                     {cartItems.map((item, idx) => (
@@ -675,7 +675,7 @@ Please confirm this order. Thank you!
                                         <span>₱{shippingFee.toLocaleString()}</span>
                                     </div>
                                     {discountAmount > 0 && (
-                                        <div className="flex justify-between text-bio-green font-medium">
+                                        <div className="flex justify-between text-glow-teal-600 font-medium">
                                             <span>Discount</span>
                                             <span>-₱{discountAmount.toLocaleString()}</span>
                                         </div>
@@ -696,7 +696,7 @@ Please confirm this order. Thank you!
 
     // Details Step
     return (
-        <div className="min-h-screen bg-cool-gray py-6 md:py-8">
+        <div className="min-h-screen bg-blush-light py-6 md:py-8">
             <div className="container mx-auto px-4 max-w-6xl">
                 <button
                     onClick={onBack}
@@ -715,7 +715,7 @@ Please confirm this order. Thank you!
                     {/* Main Form */}
                     <div className="lg:col-span-2 space-y-6">
                         {/* Customer Information */}
-                        <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                        <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                             <h2 className="font-heading text-lg font-bold text-blush-900 mb-6 flex items-center gap-2">
                                 <div className="bg-blush-50 p-2 rounded text-blush-600">
                                     <Package className="w-5 h-5" />
@@ -766,7 +766,7 @@ Please confirm this order. Thank you!
                         </div>
 
                         {/* Shipping Address */}
-                        <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                        <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                             <h2 className="font-heading text-lg font-bold text-blush-900 mb-6 flex items-center gap-2">
                                 <div className="bg-blush-50 p-2 rounded text-blush-600">
                                     <Database className="w-5 h-5" />
@@ -845,7 +845,7 @@ Please confirm this order. Thank you!
                         </div>
 
                         {/* Contact Method Selection */}
-                        <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                        <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                             <h2 className="font-heading text-lg font-bold text-blush-900 mb-3 flex items-center gap-2">
                                 <MessageCircle className="w-5 h-5 text-glow-teal-600" />
                                 Contact Method *
@@ -894,7 +894,7 @@ Please confirm this order. Thank you!
                     </div>
 
                     {/* Courier Selection */}
-                    <div className="bg-white rounded shadow-clinical p-6 border border-gray-100">
+                    <div className="bg-white rounded shadow-soft p-6 border border-gray-100">
                         <h2 className="font-heading text-lg font-bold text-blush-900 mb-3 flex items-center gap-2">
                             <Truck className="w-5 h-5 text-glow-teal-600" />
                             Select Courier Provider *
@@ -921,7 +921,7 @@ Please confirm this order. Thank you!
                     </div>
 
                     {/* Shipping Location Selection */}
-                    <div className={`bg-white rounded shadow-clinical p-6 border border-gray-100 transition-opacity duration-300 ${!selectedCourierId ? 'opacity-50 pointer-events-none' : 'opacity-100'}`}>
+                    <div className={`bg-white rounded shadow-soft p-6 border border-gray-100 transition-opacity duration-300 ${!selectedCourierId ? 'opacity-50 pointer-events-none' : 'opacity-100'}`}>
                         <h2 className="font-heading text-lg font-bold text-blush-900 mb-3 flex items-center gap-2">
                             Choose Shipping Region *
                         </h2>
@@ -976,7 +976,7 @@ Please confirm this order. Thank you!
 
                 {/* Order Summary Sidebar */}
                 <div className="lg:col-span-1">
-                    <div className="bg-white rounded shadow-clinical p-6 sticky top-24 border border-gray-100">
+                    <div className="bg-white rounded shadow-soft p-6 sticky top-24 border border-gray-100">
                         <h2 className="font-heading text-lg font-bold text-blush-900 mb-6 flex items-center gap-2">
                             Order Summary
                             <Activity className="w-4 h-4 text-glow-teal-600" />
@@ -1040,7 +1040,7 @@ Please confirm this order. Thank you!
                                 )}
                             </div>
                             {promoError && <p className="text-red-500 text-xs mt-1">{promoError}</p>}
-                            {promoSuccess && <p className="text-bio-green text-xs mt-1 font-medium">{promoSuccess}</p>}
+                            {promoSuccess && <p className="text-glow-teal-600 text-xs mt-1 font-medium">{promoSuccess}</p>}
                         </div>
 
                         <div className="space-y-2 text-sm text-gray-600 border-t border-gray-100 pt-4">
@@ -1049,7 +1049,7 @@ Please confirm this order. Thank you!
                                 <span>₱{totalPrice.toLocaleString()}</span>
                             </div>
                             {discountAmount > 0 && (
-                                <div className="flex justify-between text-bio-green font-medium">
+                                <div className="flex justify-between text-glow-teal-600 font-medium">
                                     <span>Discount</span>
                                     <span>-₱{discountAmount.toLocaleString()}</span>
                                 </div>

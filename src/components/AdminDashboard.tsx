@@ -481,8 +481,8 @@ const AdminDashboard: React.FC = () => {
           <div className="text-center mb-6">
             <div className="mx-auto mb-4">
               <img
-                src="/glow-logo.jpg"
-                alt="Glow with Joo"
+                src="/sereneva-logo.png"
+                alt="Sereneva"
                 className="h-14 w-auto mx-auto object-contain"
               />
             </div>
@@ -1342,7 +1342,7 @@ const AdminDashboard: React.FC = () => {
     // Wait, SiteSettingsManager.tsx as viewed in step 181 has no props defined in React.FC.
     // However, it has a back button logic internally? No, it has "Site Settings" header and Edit/Cancel buttons.
     // I should probably wrap it or modify it to support onBack if I want consistent UI.
-    // For now I will wrap it in the standard layout style if needed, or just render it.
+    // For now I will wrap it or modify it. 
     // Given the dashboard structure, other managers take onBack. 
     // Let's assume for now I just render it, but I might need to make it comply with the layout.
     // Actually, looking at other managers they render full screen or modify view.
@@ -1380,8 +1380,8 @@ const AdminDashboard: React.FC = () => {
               <div className="flex items-center space-x-4">
                 <div className="h-10 flex items-center">
                   <img
-                    src="/glow-logo.jpg"
-                    alt="Glow with Joo"
+                    src="/sereneva-logo.png"
+                    alt="Sereneva"
                     className="h-10 w-auto object-contain"
                   />
                 </div>

@@ -107,7 +107,7 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems }) => {
 
           {/* Results Count */}
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-xl font-heading font-bold text-science-blue-900">Product Catalog</h2>
+            <h2 className="text-xl font-heading font-bold text-blush-900">Product Catalog</h2>
             <span className="text-sm font-medium text-gray-500 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
               {sortedProducts.length} Results
             </span>
@@ -129,7 +129,7 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems }) => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="text-science-blue-600 font-semibold hover:underline"
+                    className="text-blush-600 font-semibold hover:underline"
                   >
                     Clear Search
                   </button>

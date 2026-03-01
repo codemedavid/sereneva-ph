@@ -5,18 +5,18 @@
 @tailwind utilities;
 
 :root {
-  /* Better Than Bare - Soft Pink Luxury Theme */
-  --theme-bg: #FAFAFB;
-  --theme-text: #3D3D3D;
+  /* Sereneva - Black & White Theme */
+  --theme-bg: #FFFFFF;
+  --theme-text: #111111;
 
   /* Primary Palette */
-  --blush-pink: #F8C8D8;
-  --dusty-rose: #E8A4B8;
-  --soft-pink: #FADADD;
+  --blush-pink: #E5E5E5;
+  --dusty-rose: #A3A3A3;
+  --soft-pink: #F5F5F5;
 
   /* Backgrounds */
-  --cream: #FFFCFA;
-  --blush-light: #FDF5F7;
+  --cream: #FFFFFF;
+  --blush-light: #F9F9F9;
   --warm-white: #FFFFFF;
 }
 
