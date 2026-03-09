@@ -253,10 +253,63 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
                 console.error('❌ Error saving order:', orderError);
 
                 let errorMessage = orderError.message;
-                if (orderError.message?.includes('Could not find the table') ||
-                    orderError.message?.includes('relation "public.orders" does not exist') ||
-                    orderError.message?.includes('schema cache')) {
-                    errorMessage = `The orders table doesn't exist in the database. Please run the migration.`;
+
+                // If it's a schema cache issue, try to reload and retry once
+                if (orderError.message?.includes('schema cache') ||
+                    orderError.message?.includes('Could not find the table') ||
+                    orderError.message?.includes('relation "public.orders" does not exist')) {
+
+                    console.log('🔄 Schema cache issue detected, retrying...');
+                    // Small delay to allow schema cache to potentially refresh
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+
+                    // Retry the insert once
+                    const { data: retryData, error: retryError } = await supabase
+                        .from('orders')
+                        .insert([{
+                            customer_name: fullName,
+                            customer_email: email,
+                            customer_phone: phone,
+                            shipping_address: address,
+                            shipping_barangay: barangay,
+                            shipping_city: city,
+                            shipping_state: state,
+                            shipping_zip_code: zipCode,
+                            order_items: orderItems,
+                            total_price: Math.max(0, totalPrice - discountAmount),
+                            shipping_fee: shippingFee,
+                            courier_id: selectedCourierId || null,
+                            shipping_location: shippingLocation,
+                            payment_method_id: paymentMethod?.id || null,
+                            payment_method_name: paymentMethod?.name || null,
+                            payment_proof_url: paymentProofUrl,
+                            contact_method: contactMethod || null,
+                            notes: notes.trim() || null,
+                            order_status: 'new',
+                            payment_status: 'pending',
+                            promo_code_id: appliedPromo?.id || null,
+                            promo_code: appliedPromo?.code || null,
+                            discount_applied: discountAmount
+                        }])
+                        .select()
+                        .single();
+
+                    if (!retryError && retryData) {
+                        console.log('✅ Order saved on retry:', retryData);
+                        // Continue with success flow below
+                        // Update promo code usage count
+                        if (appliedPromo) {
+                            await supabase
+                                .from('promo_codes')
+                                .update({ usage_count: appliedPromo.usage_count + 1 })
+                                .eq('id', appliedPromo.id);
+                        }
+                        alert(`Order placed successfully! Order ID: ${retryData.id}`);
+                        return;
+                    }
+
+                    // If retry also failed, show both errors
+                    errorMessage = retryError?.message || orderError.message;
                 }
 
                 alert(`Failed to save order: ${errorMessage}\n\nPlease contact support if this issue persists.`);

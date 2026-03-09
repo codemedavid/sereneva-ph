@@ -209,7 +209,9 @@ CREATE TABLE IF NOT EXISTS public.orders (
     shipping_country TEXT DEFAULT 'Philippines',
     shipping_barangay TEXT,
     shipping_region TEXT,
+    shipping_location TEXT,
     shipping_fee DECIMAL(10, 2) DEFAULT 0,
+    courier_id TEXT,
     order_items JSONB NOT NULL,
     subtotal DECIMAL(10, 2),
     total_price DECIMAL(10, 2) NOT NULL,
@@ -446,15 +448,15 @@ ON CONFLICT (id) DO UPDATE SET
     updated_at = NOW();
 
 -- Product Variations
-INSERT INTO public.product_variations (product_id, name, price, stock_quantity) VALUES
-('a1a20001-0001-4e78-94f8-585d77059001', 'Vials Only', 1800.00, 50),
-('a1a20001-0001-4e78-94f8-585d77059001', 'Complete Set', 2300.00, 30),
-('a1a20002-0002-4e78-94f8-585d77059002', 'Vials Only', 3200.00, 50),
-('a1a20002-0002-4e78-94f8-585d77059002', 'Complete Set', 3700.00, 30),
-('a1a20003-0003-4e78-94f8-585d77059003', 'Vials Only', 4500.00, 50),
-('a1a20003-0003-4e78-94f8-585d77059003', 'Complete Set', 5000.00, 30),
-('a1a20004-0004-4e78-94f8-585d77059004', 'Vials Only', 7500.00, 30),
-('a1a20004-0004-4e78-94f8-585d77059004', 'Complete Set', 8200.00, 20)
+INSERT INTO public.product_variations (product_id, name, quantity_mg, price, stock_quantity) VALUES
+('a1a20001-0001-4e78-94f8-585d77059001', 'Vials Only', 0, 1800.00, 50),
+('a1a20001-0001-4e78-94f8-585d77059001', 'Complete Set', 0, 2300.00, 30),
+('a1a20002-0002-4e78-94f8-585d77059002', 'Vials Only', 0, 3200.00, 50),
+('a1a20002-0002-4e78-94f8-585d77059002', 'Complete Set', 0, 3700.00, 30),
+('a1a20003-0003-4e78-94f8-585d77059003', 'Vials Only', 0, 4500.00, 50),
+('a1a20003-0003-4e78-94f8-585d77059003', 'Complete Set', 0, 5000.00, 30),
+('a1a20004-0004-4e78-94f8-585d77059004', 'Vials Only', 0, 7500.00, 30),
+('a1a20004-0004-4e78-94f8-585d77059004', 'Complete Set', 0, 8200.00, 20)
 ON CONFLICT DO NOTHING;
 
 -- Sample COA Reports
@@ -502,7 +504,14 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- ============================================
--- 15. VERIFY SETUP
+-- 15. RELOAD POSTGREST SCHEMA CACHE
+-- ============================================
+-- This is CRITICAL - without this, Supabase API won't see new tables
+
+NOTIFY pgrst, 'reload schema';
+
+-- ============================================
+-- 16. VERIFY SETUP
 -- ============================================
 
 SELECT 'categories' as table_name, COUNT(*) as row_count FROM public.categories
