@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelpCircle, Truck, FlaskConical, Heart } from 'lucide-react';
+import { HelpCircle, Truck, FlaskConical, Heart, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-charcoal-900 pt-16 pb-8 border-t border-charcoal-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
           {/* Brand Section */}
           <div className="flex flex-col items-center md:items-start gap-4">
@@ -47,6 +47,19 @@ const Footer: React.FC = () => {
               <HelpCircle className="w-4 h-4" />
               FAQ
             </a>
+          </div>
+
+          {/* Contact Us */}
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-2">Contact Us</h3>
+            <div className="text-charcoal-300 flex items-center gap-2 text-sm flex-wrap max-w-[200px]">
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>09983330683</span>
+            </div>
+            <div className="text-charcoal-300 flex items-start gap-2 text-sm max-w-[200px] md:text-left text-center">
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+              <span>Dasmariñas City, Cavite</span>
+            </div>
           </div>
 
         </div>
