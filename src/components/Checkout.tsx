@@ -433,9 +433,9 @@ Please confirm this order. Thank you!
 
     const handleOpenContact = () => {
         const contactUrl = contactMethod === 'viber'
-            ? `viber://chat?number=%2B639989747336`
+            ? `viber://chat?number=%2B639499516769`
             : contactMethod === 'whatsapp'
-                ? `https://wa.me/639989747336?text=${encodeURIComponent(orderMessage)}`
+                ? `https://wa.me/639499516769?text=${encodeURIComponent(orderMessage)}`
                 : null;
 
         if (contactUrl) {
