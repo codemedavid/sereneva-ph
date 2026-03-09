@@ -80,10 +80,16 @@ const CourierManager: React.FC<CourierManagerProps> = ({ onBack }) => {
 
         try {
             setIsProcessing(true);
+            const dataToSave = {
+                ...formData,
+                tracking_url_template: formData.tracking_url_template || null,
+            };
             if (editingCourier) {
-                await updateCourier(editingCourier.id, formData);
+                // Exclude code from update since it's immutable
+                const { code, ...updateData } = dataToSave;
+                await updateCourier(editingCourier.id, updateData);
             } else {
-                await addCourier(formData);
+                await addCourier(dataToSave);
             }
             setCurrentView('list');
             setEditingCourier(null);
@@ -140,7 +146,7 @@ const CourierManager: React.FC<CourierManagerProps> = ({ onBack }) => {
                                 <button
                                     onClick={handleSaveCourier}
                                     disabled={isProcessing}
-                                    className="flex-1 sm:flex-none px-3 sm:px-4 py-2 bg-tech-teal hover:bg-tech-teal/90 text-white rounded-lg transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-2 shadow-lg hover:shadow-xl text-sm sm:text-base disabled:opacity-50"
+                                    className="flex-1 sm:flex-none px-3 sm:px-4 py-2 bg-tech-teal hover:bg-tech-teal/90 text-black rounded-lg transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-2 shadow-lg hover:shadow-xl text-sm sm:text-base disabled:opacity-50"
                                 >
                                     <Save className="h-4 w-4" />
                                     <span>{isProcessing ? 'Saving...' : 'Save'}</span>
@@ -246,7 +252,7 @@ const CourierManager: React.FC<CourierManagerProps> = ({ onBack }) => {
                         </div>
                         <button
                             onClick={handleAddCourier}
-                            className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-tech-teal hover:bg-tech-teal/90 text-white px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                            className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-tech-teal hover:bg-tech-teal/90 text-black px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
                         >
                             <Plus className="h-4 w-4" />
                             <span>Add Courier</span>
@@ -269,7 +275,7 @@ const CourierManager: React.FC<CourierManagerProps> = ({ onBack }) => {
                                 <p className="text-sm sm:text-base text-gray-500 mb-4">No couriers found</p>
                                 <button
                                     onClick={handleAddCourier}
-                                    className="bg-tech-teal hover:bg-tech-teal/90 text-white px-4 py-2 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                                    className="bg-tech-teal hover:bg-tech-teal/90 text-black px-4 py-2 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
                                 >
                                     Add First Courier
                                 </button>

@@ -341,7 +341,7 @@ ${paymentMethod?.name || 'N/A'}
 ${paymentProofUrl ? 'Screenshot attached to order.' : 'Pending'}
 
 📱 CONTACT METHOD
-${contactMethod === 'viber' ? 'Viber (0998 974 7336)' : 'WhatsApp (0998 974 7336)'}
+${contactMethod === 'viber' ? 'Viber (0949 951 6769)' : 'WhatsApp (0949 951 6769)'}
 
 📋 ORDER NUMBER: ${customOrderNumber}
 
@@ -469,7 +469,7 @@ Please confirm this order. Thank you!
 
                             {!contactOpened && (
                                 <p className="text-sm text-gray-500">
-                                    If it doesn't open automatically, please manually send the copied message to <span className="font-bold">{contactMethod === 'viber' ? '0998 974 7336 on Viber' : '0998 974 7336 on WhatsApp'}</span>
+                                    If it doesn't open automatically, please manually send the copied message to <span className="font-bold">{contactMethod === 'viber' ? '0949 951 6769 on Viber' : '0949 951 6769 on WhatsApp'}</span>
                                 </p>
                             )}
                         </div>
@@ -867,7 +867,7 @@ Please confirm this order. Thank you!
                                 </svg>
                                 <div className="text-left">
                                     <p className="font-bold text-blush-900 text-sm">Viber</p>
-                                    <p className="text-xs text-gray-500">0998 974 7336</p>
+                                    <p className="text-xs text-gray-500">0949 951 6769</p>
                                 </div>
                             </button>
 
@@ -887,7 +887,7 @@ Please confirm this order. Thank you!
                                 </div>
                                 <div className="text-left">
                                     <p className="font-bold text-blush-900 text-sm">WhatsApp</p>
-                                    <p className="text-xs text-gray-500">0998 974 7336</p>
+                                    <p className="text-xs text-gray-500">0949 951 6769</p>
                                 </div>
                             </button>
                         </div>
